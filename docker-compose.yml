@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  BindPlane:
+    image: bluemedora/bindplane-metrics-collector
+    command: /opt/bluemedora/bindplane-collector/scripts/run_collector_in_docker.sh
+    env_file: ./ENVs/BindPlane.env
+    volumes:
+      - bindPlanePlugins:/opt/bluemedora/bindplane-collector/downloadedPlugins
+      - bindPlaneTmp:/opt/bluemedora/bindplane-collector/tmp
+      - bindPlaneLogs:/opt/bluemedora/bindplane-collector/log
+
+volumes:
+  bindPlanePlugins:
+  bindPlaneTmp:
+  bindPlaneLogs:
